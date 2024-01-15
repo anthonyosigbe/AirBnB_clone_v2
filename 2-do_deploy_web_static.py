@@ -7,13 +7,13 @@ from datetime import datetime
 from fabric.api import *
 import os
 
-env.hosts = ["100.25.3.119", "34.229.68.30"]
+env.hosts = ["54.224.37.65", "100.25.3.119"]
 env.user = "ubuntu"
 
 
 def do_pack():
     """
-        Return the path to the archive if it has been generated correctly.
+        return the archive path if archive has generated correctly.
     """
 
     local("mkdir -p versions")
@@ -28,7 +28,9 @@ def do_pack():
 
 
 def do_deploy(archive_path):
-    """ Distributing the  archive."""
+    """
+        Distribute archive.
+    """
     if os.path.exists(archive_path):
         archived_file = archive_path[9:]
         newest_version = "/data/web_static/releases/" + archived_file[:-4]
